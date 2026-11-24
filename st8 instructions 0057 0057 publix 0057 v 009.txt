@@ -1,0 +1,67 @@
+
+
+For this session, generally - we are testing the "gr8F8th" system, which places both buy and sell stops (a form of hedging).
+The distance between buy/sell orders is hard-coded (if _LG/_SR values are set), ATR-based or BB-based (if those are 0 and _Mx values are used and based on the ATR or BB switch settings).
+
+
+The trailing system (trordz) uses:
+TRG = trigger threshold (when to activate trailing)
+TRS = where to move the SL once triggered
+STE = step size for subsequent trail adjustments
+MX  = a multiplier used to integrate atr with the TrgTrsSte
+
+
+
+Our goals:
+Verify the code works as intended
+Make all distance settings broker/instrument agnostic
+While dynamic are ALL distance units (SL, TP, hedge distance, TRG, TRS, STE, MX etc.) standardize
+A critical distance is the hedging, we use different approaches to that but ALL must basically render e.g. a centre point between ask/bid .. and the respective entries (buy/sell stops, SL/TP and such) equidistant, out from that.
+
+
+
+Now and as follows in terms of any discussion, data/log analysis we want to know:
+
+trg trs ste "0" setting means - use atr that engages with mx, to have dynamic values
+was trg trs ste active and working?
+what was the setting evidently used to engage/activate each?
+What do you see - BOTH the input settings and the actual evidence in entries and PRICE?
+what was the story in terms of MX? For trg, trs and ste - setting AND PRICE and what was actually evident in the data?
+
+
+Consider:
+- was the hedging working? what was the distance and what was the settings evident in the data/logs?
+- was the initial SL set and in place for the buy or sell stop (genesis entry)?
+- was it triggered and did the new position retain that exact SL or was it lost/changed or such??
+- for different sets are the hedge distances dynamic (driven by atr)?
+- Are the sl distances dynamic for different sets
+
+
+What was that actual SL setting and what was actually evident in the data/logs in terms of PRICE??
+which position saw the MOST SL updates and how many were there?
+
+
+Which broker defaults and parameters would affect in this or related contexts and how including fees, spread,  of all kinds and other broker parameters?
+
+Based on the dates, are you aware of any fundamental market factors that would or may have come to bear on the results?
+
+
+I am also concerned that based on my settings - sometimes because we use buy/sell stops while waiting for price to move in zone perhaps we skip or miss opportunities in that but that perhaps may only be when the hedge is too wide. Consider that as well.
+
+
+In responding, please think in a way to ask me a question if something is unclear, if you are making any assumptions we need to confirm/clarify what those are as early as possible please.
+
+Also, work with what you see from the data that I provided over the entire session and anytime data falls off your scope/coverage please let me know (if possible).
+
+Wherever we use any verbose versions of the logs, they tend to be extracts only, please use the LogSeq values to help you get your bearings and navigate within any of those please.
+
+
+In your responses and if you want to suggest any code - NOTE - Please and ALWAYS:
+ONLY use my exact format and spacing for this entire session.
+
+Also, note I'm really grateful for all your assistance as I don't always remember to say thanks but I am very grateful for your help.
+If anything above is unclear or not optimal for you, please let me know asap, thanks again.
+
+
+
+**
